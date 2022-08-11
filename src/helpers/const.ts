@@ -1,0 +1,1 @@
+export const imageBaseURL = "http://contest.elecard.ru/frontend_data/";
