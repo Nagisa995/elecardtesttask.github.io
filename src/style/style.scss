@@ -114,17 +114,27 @@ h6 {
   width: 100%;
 }
 
+.accordion_content{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
 header {
   position: fixed;
   top: 0%;
 }
 
-.timebody {
+.main_content {
   margin-top: 5%;
-  height: 1000px;
+  padding: 0 1rem;
 }
 
 footer {
   position: fixed;
   bottom: 0%;
+}
+
+body{
+  font-family: 'Roboto', Arial, sans-serif;
 }

@@ -1,22 +1,14 @@
 import { FC } from "react";
-import { generateImageURL } from "../../helpers/utils";
 import { useAppSelector } from "../../hooks/redux";
 import { Loader } from "../ui-components/loader";
+import { TreeForm } from "./tree-form/tree-form";
 
 export const MainBody: FC = () => {
-  const { imageData, isImageDataLoading } = useAppSelector(
-    (store) => store.appReducer
-  );
-
-  const imageCollection = imageData.map((image) => (
-    <img src={generateImageURL(image.image)} />
-  ));
+  const { isImageDataLoading } = useAppSelector((store) => store.appReducer);
 
   return (
-    <>
-      {(isImageDataLoading && <Loader />) || (
-        <div className="timebody"> {imageCollection}</div>
-      )}
-    </>
+    <div className="main_content">
+      {(isImageDataLoading && <Loader />) || <TreeForm />}
+    </div>
   );
 };
