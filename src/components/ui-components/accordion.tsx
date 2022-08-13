@@ -1,31 +1,25 @@
-import { FC } from "react";
-import {
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  Typography,
-  Box,
-} from "@mui/material";
-import { ExpandMore } from "@mui/icons-material";
+import { FC, useState } from "react";
 
 interface IAccordion {
   name: string;
   childsData: any;
 }
 
-export const AccordionElement: FC<IAccordion> = ({ name, childsData }) => {
+export const AccordionElement: FC<IAccordion> = ({
+  name,
+  childsData,
+}) => {
+  const [isOpenAccordion, setIsOpenAccordion] = useState(false);
+
   return (
-    <Accordion>
-      <AccordionSummary
-        id={name}
-        aria-controls={name}
-        expandIcon={<ExpandMore />}
+    <div className="accordion_body">
+      <div
+        className="accordion_title"
+        onClick={() => setIsOpenAccordion(!isOpenAccordion)}
       >
-        <Typography>{name}</Typography>
-      </AccordionSummary>
-      <AccordionDetails>
-        <Box className="accordion_content">{childsData} </Box>
-      </AccordionDetails>
-    </Accordion>
+        {name}
+      </div>
+      {isOpenAccordion && <div className="accordion_content">{childsData}</div>}
+    </div>
   );
 };

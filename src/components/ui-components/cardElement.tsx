@@ -1,25 +1,36 @@
-import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { dateFormat, generateImageURL } from "../../helpers/utils";
 import { IImageInfo } from "../../store/reducers/appState";
+import { ModalImage } from "./modal-window-image";
 
 interface ICardImage {
   imageInformation: IImageInfo;
 }
 
 export const CardElement: FC<ICardImage> = ({ imageInformation }) => {
+  const [isModalWindowActive, setIsModalWindowActive] = useState(false);
+
   return (
-    <Box width="250px">
-      <Card>
-        <CardMedia
-          component="img"
-          height="250px"
-          image={generateImageURL(imageInformation.image)}
+    <>
+      {isModalWindowActive && (
+        <ModalImage
+          imgURL={imageInformation.image}
+          setWindowClose={setIsModalWindowActive}
         />
-        <CardContent>
-          <Typography>Loaded:{dateFormat(imageInformation.timestamp)}</Typography>
-        </CardContent>
-      </Card>
-    </Box>
+      )}
+      <div className="image_card">
+        <div className="image_container">
+          <img
+            src={generateImageURL(imageInformation.image)}
+            alt={imageInformation.image}
+            id={imageInformation.image}
+            onClick={() => setIsModalWindowActive(true)}
+          />
+        </div>
+        <div className="image_information">
+          Loaded:{dateFormat(imageInformation.timestamp)}
+        </div>
+      </div>
+    </>
   );
 };

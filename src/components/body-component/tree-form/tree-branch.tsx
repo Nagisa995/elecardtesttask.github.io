@@ -10,12 +10,8 @@ interface ITreeBranch {
 
 export const TreeBranch: FC<ITreeBranch> = ({ branchName, childs }) => {
   const branchOnUI = childs.map((image) => (
-    <CardElement imageInformation={image} />
+    <CardElement imageInformation={image} key={image.image} />
   ));
 
-  return (
-    <div>
-      <AccordionElement name={branchName} childsData={branchOnUI} />
-    </div>
-  );
+  return <AccordionElement name={branchName} childsData={branchOnUI} />;
 };
