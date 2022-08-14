@@ -1,6 +1,11 @@
 import { FC, useState } from "react";
-import { dateFormat, generateImageURL } from "../../helpers/utils";
+import {
+  dateFormat,
+  generateImageURL,
+  getImageName,
+} from "../../helpers/utils";
 import { IImageInfo } from "../../store/reducers/appState";
+import { DeleteButton } from "./deleteButton";
 import { ModalImage } from "./modal-window-image";
 
 interface ICardImage {
@@ -26,9 +31,13 @@ export const CardElement: FC<ICardImage> = ({ imageInformation }) => {
             id={imageInformation.image}
             onClick={() => setIsModalWindowActive(true)}
           />
+          <DeleteButton imageID={imageInformation.image} />
         </div>
         <div className="image_information">
-          Loaded:{dateFormat(imageInformation.timestamp)}
+          <p>Name: {getImageName(imageInformation.image)}</p>
+          <p>Category: {imageInformation.category}</p>
+          <p>File size: {imageInformation.filesize} bytes</p>
+          <p>Loaded: {dateFormat(imageInformation.timestamp)}</p>
         </div>
       </div>
     </>

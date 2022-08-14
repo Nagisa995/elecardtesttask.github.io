@@ -1,5 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+import { exclusionList } from "../../helpers/const";
+import Cookies from "js-cookie";
+
 export interface IImageInfo {
   image: string;
   filesize: number;
@@ -11,15 +14,19 @@ interface IAppState {
   imageData: IImageInfo[];
   isImageDataLoading: boolean;
   imageDataError: string;
+
+  exclusionImageList: string[];
 }
 
 const defaultState: IAppState = {
   imageData: [],
   isImageDataLoading: false,
   imageDataError: "",
+
+  exclusionImageList: Cookies.get(exclusionList) ?? [],
 };
 
-export const appSlice = createSlice({
+export const appStateSlice = createSlice({
   name: "appStoreData",
   initialState: defaultState,
   reducers: {
@@ -34,7 +41,13 @@ export const appSlice = createSlice({
       state.isImageDataLoading = false;
       state.imageDataError = action.payload;
     },
+    addInExclusionList(state, action: PayloadAction<string>) {
+      state.exclusionImageList.push(action.payload);
+    },
+    resetExclusionList(state) {
+      state.exclusionImageList = [];
+    },
   },
 });
 
-export default appSlice.reducer;
+export default appStateSlice.reducer;

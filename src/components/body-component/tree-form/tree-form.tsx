@@ -1,14 +1,20 @@
 import { FC } from "react";
-import { useAppSelector } from "../../../hooks/redux";
 import { TreeBranch } from "./tree-branch";
 import { AccordionElement } from "../../ui-components/accordion";
 import { sortedData } from "./utils";
+import { IImageInfo } from "../../../store/reducers/appState";
 
-export const TreeForm: FC = () => {
-  const { imageData } = useAppSelector((store) => store.appReducer);
+interface ITreeForm {
+  imageData: IImageInfo[];
+}
 
+export const TreeForm: FC<ITreeForm> = ({ imageData }) => {
   if (imageData.length === 0) {
-    return <div></div>;
+    return (
+      <span>
+        <strong>Что-то пошло не по плану...</strong>
+      </span>
+    );
   }
 
   const sortByCategory = sortedData(imageData);

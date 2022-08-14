@@ -86,7 +86,21 @@ h6 {
   margin-top: 90px;
   padding: 0 1rem 90px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+}
+
+.card_filter_group {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-image-group {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .loader_screen {
@@ -143,6 +157,7 @@ h6 {
   width: 100%;
   height: 80px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -186,7 +201,14 @@ h6 {
 }
 .image_card .image_container {
   height: 250px;
+  position: relative;
   display: flex;
+  cursor: pointer;
+}
+.image_card .image_container .delete-button {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 .image_card .image_container img {
   max-width: 100%;
@@ -198,16 +220,22 @@ h6 {
   font-weight: 600;
   font-size: 16px;
   padding: 5px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 header {
   position: fixed;
   top: 0%;
+  z-index: 90;
 }
 
 footer {
   position: fixed;
   bottom: 0%;
+  z-index: 90;
 }
 
 body {
