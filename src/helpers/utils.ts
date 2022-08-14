@@ -1,5 +1,6 @@
 import format from "date-fns/format";
-import { imageBaseURL, imagePerPage } from "./const";
+import Cookies from "js-cookie";
+import { exclusionList, imageBaseURL, imagePerPage } from "./const";
 
 export const generateImageURL = (urlEnd: string): string => {
   return imageBaseURL + urlEnd;
@@ -22,4 +23,12 @@ export const compareIndex = (page: number, index: number): boolean => {
   const endLimit = (page + 1) * imagePerPage;
   const isIndexInLimit = index >= startLimit && index < endLimit;
   return isIndexInLimit;
+};
+
+export const getCookieData = () => {
+  try {
+    return JSON.parse(Cookies.get(exclusionList));
+  } catch (error) {
+    return [];
+  }
 };

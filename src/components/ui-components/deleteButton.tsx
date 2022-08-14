@@ -1,4 +1,4 @@
-import { Delete, DeleteOutline, DeleteTwoTone } from "@mui/icons-material";
+import { Delete } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 import { FC } from "react";
 import { useAppDispatch } from "../../hooks/redux";
