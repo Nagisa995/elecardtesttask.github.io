@@ -95,12 +95,12 @@ h6 {
   justify-content: center;
 }
 
-.card_filter_group{
+.card_filter_group {
   display: flex;
   justify-content: space-around;
 }
 
-.card-image-group{
+.card-image-group {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -119,12 +119,25 @@ h6 {
   bottom: 0%;
   z-index: 99;
 
-  background-color: rgb(255, 255, 255);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 43%,
+    rgba(77, 223, 67, 1) 100%
+  );
 
-  span {
-    color: rgb(34, 28, 28);
-    font-size: 24px;
-    font-weight: 700;
+  .loader_image {
+    position: fixed;
+    z-index: 100;
+    max-width: 25%;
+
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
   }
 }
 
@@ -165,7 +178,6 @@ h6 {
 
 .layout {
   padding: 1rem;
-  background-color: coral;
   width: 100%;
   height: 80px;
 
@@ -226,7 +238,7 @@ h6 {
     display: flex;
     cursor: pointer;
 
-    .delete-button{
+    .delete-button {
       position: absolute;
       top: 0;
       right: 0;
@@ -252,12 +264,22 @@ header {
   position: fixed;
   top: 0%;
   z-index: 90;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 6%,
+    rgba(255, 214, 0, 1) 100%
+  );
 }
 
 footer {
   position: fixed;
   bottom: 0%;
   z-index: 90;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 214, 0, 1) 0%,
+    rgba(255, 255, 255, 1) 94%
+  );
 }
 
 body {

@@ -5,10 +5,7 @@ interface IAccordion {
   childsData: any;
 }
 
-export const AccordionElement: FC<IAccordion> = ({
-  name,
-  childsData,
-}) => {
+export const AccordionElement: FC<IAccordion> = ({ name, childsData }) => {
   const [isOpenAccordion, setIsOpenAccordion] = useState(false);
 
   return (

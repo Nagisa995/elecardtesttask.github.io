@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { filters, imagePerPage } from "../../../helpers/const";
 import { IImageInfo } from "../../../store/reducers/appState";
 import { CardFilterButtonGroup } from "./card-filter-group";
@@ -16,9 +16,15 @@ export const CardForm: FC<ICardForm> = ({ imageData }) => {
 
   const filteredImageList = filteredList(imageData, currenFilter);
   const totalPage = Math.ceil(filteredImageList.length / imagePerPage);
+
   if (currentPage === totalPage) {
     setCurrentPage(currentPage - 1);
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
   return (
     <>
       <span>

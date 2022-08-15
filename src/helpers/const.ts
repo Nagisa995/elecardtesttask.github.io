@@ -2,6 +2,8 @@ export const imageBaseURL = "http://contest.elecard.ru/frontend_data/";
 
 export const urlData = "http://contest.elecard.ru/frontend_data/catalog.json";
 
+export const loaderURL = "https://img.icons8.com/color/344/open-source--v1.png";
+
 export enum contentForm {
   TREE = "Tree",
   CARD = "Card",

@@ -16,7 +16,11 @@ export const ModalImage: FC<IModal> = ({ imgURL, setWindowClose }) => {
           alt={imgURL}
           onClick={(e) => e.stopPropagation()}
         />
-        <Button variant="contained" color="success" onClick={() => setWindowClose(false)}>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={() => setWindowClose(false)}
+        >
           Close Image
         </Button>
       </div>

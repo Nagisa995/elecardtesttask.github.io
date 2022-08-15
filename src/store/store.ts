@@ -1,10 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import appReducer from "./reducers/appState";
-import appFormReducer from './reducers/appForm'
+import appFormReducer from "./reducers/appForm";
 
 const rootReducer = combineReducers({
   appReducer,
-  appFormReducer
+  appFormReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

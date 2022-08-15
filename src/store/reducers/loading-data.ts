@@ -9,7 +9,7 @@ export const requestImageData = () => async (dispatch: AppDispatch) => {
     dispatch(appStateSlice.actions.imageDataFetching());
     const responseData = await axios.get<IImageInfo[]>(urlData);
     dispatch(appStateSlice.actions.imageDataFetchingSuccess(responseData.data));
-  } catch (error: any) {
+  } catch (error) {
     dispatch(appStateSlice.actions.imageDataFetchingError(error.message));
   }
 };

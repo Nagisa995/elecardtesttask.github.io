@@ -9,14 +9,6 @@ interface ITreeForm {
 }
 
 export const TreeForm: FC<ITreeForm> = ({ imageData }) => {
-  if (imageData.length === 0) {
-    return (
-      <span>
-        <strong>Что-то пошло не по плану...</strong>
-      </span>
-    );
-  }
-
   const sortByCategory = sortedData(imageData);
 
   const treeBranchs = Object.entries(sortByCategory).map((branch) => (
