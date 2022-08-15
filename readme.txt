@@ -1,0 +1,1 @@
+task: http://contest.elecard.ru/frontend/task

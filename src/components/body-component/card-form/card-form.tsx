@@ -16,6 +16,9 @@ export const CardForm: FC<ICardForm> = ({ imageData }) => {
 
   const filteredImageList = filteredList(imageData, currenFilter);
   const totalPage = Math.ceil(filteredImageList.length / imagePerPage);
+  if (currentPage === totalPage) {
+    setCurrentPage(currentPage - 1);
+  }
   return (
     <>
       <span>
